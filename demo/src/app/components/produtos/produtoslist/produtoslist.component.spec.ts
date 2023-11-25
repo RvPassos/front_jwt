@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ProdutoslistComponent } from './produtoslist.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { Produto } from 'src/app/models/produto';
 
 describe('ProdutoslistComponent', () => { //GRUPO DE TESTES DE UM COMPONENTE
   let component: ProdutoslistComponent;
@@ -23,25 +22,24 @@ describe('ProdutoslistComponent', () => { //GRUPO DE TESTES DE UM COMPONENTE
 
   });
 
-  beforeEach(() => {
-    let aux : Produto = new Produto;
-    aux.id = 1;
-    aux.nome = 'produto';
-    aux.valor = 50
-    
-  })  
-
-
+  //CASO DE TESTE 1
   it('Teste 1 - criação ok do componente', () => {
     expect(component).toBeTruthy();
   });
-/*
-  it('Teste 2 - existência da tag table', () =>{
-    const html = fixture.nativeElement as HTMLElement;
-    expect(html.querySelector('.container')?.textContent).toContain('table');
-  });
-*/
 
+  it('Teste 2 - existência da tag table', () => {
+    const html = fixture.nativeElement as HTMLElement;
+    const containerElement = html.querySelector('.container');
+  
+    // Verificar se o elemento .container existe
+    expect(containerElement).toBeTruthy();
+  
+    // Verificar se existe um elemento <table> dentro do .container
+    const tableElement = containerElement?.querySelector('table');
+    expect(tableElement).toBeTruthy();
+  });
 
 });
+
+
 

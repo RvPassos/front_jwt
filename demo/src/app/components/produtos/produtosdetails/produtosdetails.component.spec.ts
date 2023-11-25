@@ -68,7 +68,9 @@ describe('ProdutosdetailsComponent', () => {
 
 
   it('Teste de @Output() retorno', fakeAsync(() => {
+    //let elemento = fixture.debugElement.query(By.css('button[name="botao"]'));
     spyOn(component.retorno, 'emit');
+    //elemento.triggerEventHandler('click', null);
     component.salvar();
     expect(component.retorno.emit).toHaveBeenCalled();
   }));

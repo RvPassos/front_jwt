@@ -1,13 +1,9 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Injectable, NgModule, inject } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
 import { Login } from '../models/login';
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
-
-@NgModule({
-  imports: [HttpClientModule]
-})
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +13,7 @@ export class LoginService {
   API: string = 'http://localhost:8080/api/login';
   http = inject(HttpClient);
 
-  constructor(private http2: HttpClient) { }
+  constructor() { }
 
 
   logar(login: Login): Observable<User> {

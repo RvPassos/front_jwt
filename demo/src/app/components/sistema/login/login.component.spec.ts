@@ -1,10 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LoginComponent } from './login.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { Login } from 'src/app/models/login';
-import { HttpClientModule } from '@angular/common/http';
-import { LoginService } from 'src/app/services/login.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -12,9 +9,8 @@ describe('LoginComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
       declarations: [LoginComponent],
-      providers: [LoginService],
+      imports: [HttpClientTestingModule],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA
       ]
@@ -24,20 +20,7 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
   });
 
-  beforeEach(() => {
-    let login = new Login();
-    login.username = 'admin';
-    login.password = '123';
-    component.login = login;
-    fixture.detectChanges();
-  })
-
   it('should create', () => {
-    const fixture = TestBed.createComponent(LoginComponent);
-    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
-
-
-
 });
